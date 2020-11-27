@@ -1,4 +1,5 @@
 # Dialog Manager
+[View Demo](https://vehikl.github.io/react-dialog-manager)
 
 ## Getting Started
 
