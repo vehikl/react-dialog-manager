@@ -1,0 +1,25 @@
+name: Publish
+on:
+  push:
+    branches:
+      - main
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 14.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+        registry-url: https://registry.npmjs.org/
+    - name: install
+      run: npm ci
+    - name: build
+      run: npm run build-storybook
+    - name: Deploy Storybook
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./storybook-static
+        commit_message: ${{ github.event.head_commit.message }}
