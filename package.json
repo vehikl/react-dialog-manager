@@ -1,5 +1,5 @@
 {
-  "name": "@ajoelp/dialog-manager-react",
+  "name": "@vehikl/react-dialog-manager",
   "version": "1.0.0",
   "description": "A headless dialog/modal manager for react.",
   "source": "src/index.ts",
