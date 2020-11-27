@@ -22,9 +22,10 @@ describe('DialogService', () => {
 
   test('will get a dialog by name', () => {
     const dialogName = 'Login';
-    DialogService.register(dialogName, () => <div />);
+    const dialogResult = () => <div>Hello</div>;
+    DialogService.register(dialogName, dialogResult);
 
-    expect(DialogService.get(dialogName)).toEqual({});
+    expect(DialogService.get(dialogName)).toEqual(dialogResult);
   });
 
   test('will throw if dialog is not available', () => {
