@@ -3,12 +3,12 @@
 ## Getting Started
 
 ```sh
-npm install @ajoelp/dialog-manager-react
+npm install @vehikl/dialog-manager-react
 ```
 
 ```jsx
 import React from 'react';
-import DialogManager from '@ajoelp/dialog-manager-react';
+import DialogManager from '@vehikl/dialog-manager-react';
 
 function MyComponent(){
   return <DialogManager />
