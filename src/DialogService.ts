@@ -1,9 +1,11 @@
-type DialogObject = { [name: string]: any };
+import { Component } from './types/Component';
+
+type DialogObject = { [name: string]: Component };
 
 class DialogService {
   dialogs: DialogObject = {};
 
-  register(name: string, dialog: any) {
+  register(name: string, dialog: Component) {
     this.dialogs[name] = dialog;
   }
 
@@ -11,7 +13,7 @@ class DialogService {
     this.dialogs = dialogs;
   }
 
-  get(name: string) {
+  get(name: string): Component {
     if (!this.dialogs[name]) {
       throw new Error(`Dialog ${name} not found`);
     }

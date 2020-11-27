@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@headlessui/react": "^0.2.0",
     "@storybook/addon-actions": "^6.1.6",
     "@storybook/addon-essentials": "^6.1.6",
     "@storybook/addon-links": "^6.1.6",

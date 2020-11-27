@@ -3,8 +3,9 @@ import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import DialogService from '../src/DialogService';
 import useDialog from '../src/hooks/useDialog';
+import DialogExample from './DialogExample';
 
-DialogService.register('FirstDialog', () => <p>My first dialog</p>);
+DialogService.register('FirstDialog', DialogExample);
 
 const meta: Meta = {
   title: 'DialogManager',
@@ -17,10 +18,10 @@ const meta: Meta = {
 export default meta;
 
 const Button = () => {
-  const { setDialogName, closeDialog } = useDialog();
+  const { openDialog, closeDialog } = useDialog();
   return (
     <>
-      <button onClick={() => setDialogName('FirstDialog')}>Click me</button>
+      <button onClick={() => openDialog('FirstDialog')}>Click me</button>
       <button onClick={closeDialog}>Close Dialog</button>
     </>
   );
