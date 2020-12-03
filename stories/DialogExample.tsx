@@ -2,8 +2,8 @@ import React from 'react';
 import { Transition } from '@headlessui/react';
 import useDialog from '../src/hooks/useDialog';
 
-export default function DialogExample({ message, delay, show }) {
-  const { closeDialog } = useDialog();
+export default function DialogExample({ message, delay }) {
+  const { closeDialog, show } = useDialog();
 
   return (
     <Transition show={show}>

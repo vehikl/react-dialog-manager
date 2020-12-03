@@ -16,10 +16,9 @@ export const DialogManager: FC<DialogManagerProps> = ({ children }) => {
     setTimeout(() => {
       setDialog(undefined);
     }, (dialog?.props.delay || 100));
-
   };
 
-  const openDialog = (name: string, props: any = {}) => {
+  const openDialog = (name: string, props: any = {}, ) => {
     setTimeout(() => {
       setIsDialogVisible(true)
     }, (props.delay || 100));
@@ -28,9 +27,9 @@ export const DialogManager: FC<DialogManagerProps> = ({ children }) => {
   };
 
   return (
-    <DialogManagerContext.Provider value={{ currentDialog: dialog?.name, openDialog, closeDialog }}>
+    <DialogManagerContext.Provider value={{ currentDialog: dialog?.name, openDialog, closeDialog, show: isDialogVisible }}>
       {children}
-      {DialogNode ? <DialogNode {...dialog?.props ?? {}} show={isDialogVisible} /> : null}
+      {DialogNode ? <DialogNode {...dialog?.props ?? {}} /> : null}
     </DialogManagerContext.Provider>
   );
 };
