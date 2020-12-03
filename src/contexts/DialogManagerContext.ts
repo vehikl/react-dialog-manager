@@ -7,4 +7,8 @@ export type DialogManagerStateType = {
   show: boolean;
 };
 
-export default React.createContext<DialogManagerStateType>({ openDialog: () => {}, closeDialog: () => {}, show: false });
+export default React.createContext<DialogManagerStateType>({
+  openDialog: () => {},
+  closeDialog: () => {},
+  show: false,
+});

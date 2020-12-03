@@ -36,5 +36,5 @@ const Template: Story<DialogManagerProps> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   message: 'Sir',
-  delay: 200
+  delay: 200,
 };

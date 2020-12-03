@@ -34,12 +34,12 @@ describe('DialogManager', () => {
   it('will render the component with props', async () => {
     DialogService.register('dialog', ({ message }: any) => <div>{message}</div>);
 
-    const testMessage = 'test-message'
+    const testMessage = 'test-message';
 
     const Button = () => {
       const { openDialog } = useDialog();
       return (
-        <button data-testid="button" onClick={() => openDialog('dialog', { message: testMessage})}>
+        <button data-testid="button" onClick={() => openDialog('dialog', { message: testMessage })}>
           Click
         </button>
       );
@@ -59,7 +59,7 @@ describe('DialogManager', () => {
   });
 
   it('can close a dialog', async () => {
-    jest.useFakeTimers()
+    jest.useFakeTimers();
 
     DialogService.register('dialog', () => <div data-testid="dialog" />);
     const delay = 100;
@@ -91,9 +91,9 @@ describe('DialogManager', () => {
 
     act(() => {
       fireEvent.click(button);
-      jest.advanceTimersByTime(delay)
-    })
-    
+      jest.advanceTimersByTime(delay);
+    });
+
     expect(screen.queryByTestId('dialog')).not.toBeInTheDocument();
   });
 });

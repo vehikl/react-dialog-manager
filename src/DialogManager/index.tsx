@@ -5,31 +5,33 @@ import DialogManagerContext from '../contexts/DialogManagerContext';
 export type DialogManagerProps = {};
 
 export const DialogManager: FC<DialogManagerProps> = ({ children }) => {
-  const [dialog, setDialog] = useState<{ name: string, props: any }>()
-  const [isDialogVisible, setIsDialogVisible] = useState<boolean>(false)
+  const [dialog, setDialog] = useState<{ name: string; props: any }>();
+  const [isDialogVisible, setIsDialogVisible] = useState<boolean>(false);
 
   const DialogNode = dialog ? DialogService.get(dialog.name) : null;
 
   const closeDialog = () => {
-    setIsDialogVisible(false)
+    setIsDialogVisible(false);
 
     setTimeout(() => {
       setDialog(undefined);
-    }, (dialog?.props.delay || 100));
+    }, dialog?.props.delay || 100);
   };
 
-  const openDialog = (name: string, props: any = {}, ) => {
+  const openDialog = (name: string, props: any = {}) => {
     setTimeout(() => {
-      setIsDialogVisible(true)
-    }, (props.delay || 100));
+      setIsDialogVisible(true);
+    }, props.delay || 100);
 
-    setDialog({ name, props })
+    setDialog({ name, props });
   };
 
   return (
-    <DialogManagerContext.Provider value={{ currentDialog: dialog?.name, openDialog, closeDialog, show: isDialogVisible }}>
+    <DialogManagerContext.Provider
+      value={{ currentDialog: dialog?.name, openDialog, closeDialog, show: isDialogVisible }}
+    >
       {children}
-      {DialogNode ? <DialogNode {...dialog?.props ?? {}} /> : null}
+      {DialogNode ? <DialogNode {...(dialog?.props ?? {})} /> : null}
     </DialogManagerContext.Provider>
   );
 };
