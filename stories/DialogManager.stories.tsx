@@ -17,11 +17,11 @@ const meta: Meta = {
 
 export default meta;
 
-const Button = () => {
+const Button = (args) => {
   const { openDialog, closeDialog } = useDialog();
   return (
     <>
-      <button onClick={() => openDialog('FirstDialog')}>Click me</button>
+      <button onClick={() => openDialog('FirstDialog', args)}>Click me</button>
       <button onClick={closeDialog}>Close Dialog</button>
     </>
   );
@@ -29,9 +29,12 @@ const Button = () => {
 
 const Template: Story<DialogManagerProps> = (args) => (
   <DialogManager>
-    <Button />
+    <Button {...args} />
   </DialogManager>
 );
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  message: 'Sir',
+  delay: 200
+};

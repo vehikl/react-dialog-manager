@@ -2,7 +2,7 @@ import React from 'react';
 
 export type DialogManagerStateType = {
   currentDialog?: string;
-  openDialog(dialogName: string): void;
+  openDialog(dialogName: string, props?: any): void;
   closeDialog(): void;
 };
 

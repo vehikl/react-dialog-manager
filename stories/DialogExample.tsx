@@ -2,10 +2,11 @@ import React from 'react';
 import { Transition } from '@headlessui/react';
 import useDialog from '../src/hooks/useDialog';
 
-export default function DialogExample() {
+export default function DialogExample({ message, delay, show }) {
   const { closeDialog } = useDialog();
+
   return (
-    <Transition show={true}>
+    <Transition show={show}>
       <div className="fixed z-10 inset-0 overflow-y-auto">
         <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child
@@ -56,7 +57,7 @@ export default function DialogExample() {
                 </div>
                 <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                   <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
-                    Deactivate account
+                    Deactivate account {message}
                   </h3>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
